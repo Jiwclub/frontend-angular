@@ -5,20 +5,14 @@
             <h1 class="title has-text-primary">
                 Lists
             </h1>
-
-
             <div class="list-menu">
-                <a class="list-menu-item is-active">
-                    <p>List #1</p>
-                </a>
-                <a class="list-menu-item ">
-                    <p>List #1</p>
-                </a>
-                <a class="list-menu-item ">
-                    <p>List #1</p>
+                <a class="list-menu-item " *ngFor="let list of lists" [routerLink]="['/lists', list._id]"
+                    routerLinkActive="is-active">
+                    <p>{{list.title}}</p>
                 </a>
             </div>
-            <button class="button is-primary">+ New List</button>
+            <button class="button is-primary" [routerLink]="['/new-list']" routerLinkActive="router-link-active">+ New
+                List</button>
         </div>
 
         <div class="task-list-container has-background-light">
@@ -26,19 +20,14 @@
                 Lists
             </h1>
             <!-- tesk Element -->
-            <div class="task">
-                <p>This is something i have to do</p>
+            <div class="task" *ngFor="let task of tasks">
+                <p>{{task.title}}</p>
             </div>
-            <div class="task">
-                <p>This is something i have to do</p>
-            </div>
-            <div class="task complete">
-                <p>This is something i have to do</p>
-            </div>
-            <!-- <div class="task">
-                <p>This is something i have to do</p>
-            </div> -->
 
+            <button class="circle-add-button button is-active">
+                <div><h1>+</h1></div>
+                
+            </button>
         </div>
     </div>
     <p></p>
